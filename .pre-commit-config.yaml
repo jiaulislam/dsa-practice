@@ -1,0 +1,27 @@
+default_stages: [pre-commit]
+fail_fast: true
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-xml
+      - id: check-toml
+      - id: check-yaml
+      - id: check-ast
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: debug-statements
+      - id: pretty-format-json
+        args: [--autofix]
+      - id: check-json
+
+  # Ruff for linting and formatting
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.7.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
