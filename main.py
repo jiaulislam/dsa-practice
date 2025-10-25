@@ -1,6 +1,10 @@
+import logging
+
+
 def main():
-    print("Hello from dsa-practice!")
+    print("This is the main function.")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     main()
