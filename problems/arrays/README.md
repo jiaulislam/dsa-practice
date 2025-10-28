@@ -16,7 +16,7 @@ There are many techniques that can be used to solve problems involving arrays, s
 
 At high level: you maintain a "window" (a contiguous segment) defined by two indices (say `left` and `right`) over your data. And you slide(move) the window through your data, incrementally updating your answer rather than recomputing from scratch each time.
 
-There are tow main flavours in sliding window technique:
+There are two main flavours in sliding window technique:
 
 - **Fixed-size window**: window size (lets say `k`) which is a constant. You slide the window at a time through your data computing something at a time (sum, average, max) each window.
 - **Variable-size window**: window size can grow or shrink. You constantly grow or shrink the window size until a condition is met (e.g, longest substring with at most k distinct chars)

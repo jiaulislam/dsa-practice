@@ -44,25 +44,17 @@ Maximum average = 51/4 = 12.75
 
 
 def find_maximum_average(nums: List[int], k: int) -> float:
-    n = len(nums)
-
     if k <= 0:
-        raise ValueError("k cannot be negative")
+        raise ValueError("`k` must be greater than 0")
 
-    # Step 1: Calculate sum of first k elements (initial window)
+    n = len(nums)
     current_sum = sum(nums[0:k])
     max_sum = current_sum
 
-    # Step 2: Slide the window from position k to n-1
     for i in range(k, n):
-        # Sliding window formula: remove left, add right
         current_sum += nums[i] - nums[i - k]
-
-        # Track maximum sum
         if current_sum > max_sum:
             max_sum = current_sum
-
-    # Step 3: Convert maximum sum to average
     return max_sum / k
 
 
