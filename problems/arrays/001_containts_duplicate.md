@@ -19,4 +19,4 @@ else False.
 Learned the solution for sliding window and it's variant
 
 - Sliding window with 2 pointer
-- Sliding window with hashmap
+- Simple hashmap solution

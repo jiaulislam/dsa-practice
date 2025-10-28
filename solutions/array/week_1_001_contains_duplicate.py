@@ -17,30 +17,30 @@ from typing import List
 
 # version 2
 # using hashmap
-def contains_duplicate(nums: List[int], k: int):
-    seen = {}
+# def contains_duplicate(nums: List[int], k: int):
+#     seen = {}
 
-    for index, num in enumerate(nums):
-        if num not in seen:
-            seen[num] = index
-            continue
-        if abs(index - seen[num]) <= k:
-            return True
-        seen[num] = index  # keep the latest index
-    return False
+#     for index, num in enumerate(nums):
+#         if num not in seen:
+#             seen[num] = index
+#             continue
+#         if abs(index - seen[num]) <= k:
+#             return True
+#         seen[num] = index  # keep the latest index
+#     return False
 
 
 # version 3
 # using sliding window technique
-# def contains_duplicate(nums: List[int], k: int):
-#     window = set()
-#     left = 0
+def contains_duplicate(nums: List[int], k: int):
+    if k < 0:
+        return False
 
-#     for right in nums:
-#         if right in window:
-#             return True
-#         window.add(right)
-#         if len(window) > k:
-#             window.remove(nums[left])
-#             left += 1
-#     return False
+    window = set()
+    for i, v in enumerate(nums):
+        if v in window:
+            return True
+        window.add(v)
+        if len(window) > k:
+            window.remove(nums[i - k])
+    return False

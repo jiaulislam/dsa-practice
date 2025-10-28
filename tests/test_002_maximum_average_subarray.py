@@ -192,6 +192,19 @@ class TestMaximumAverageSubarray(unittest.TestCase):
         result = find_maximum_average(nums, k)
         self.assertAlmostEqual(result, expected, delta=0.00001)
 
+    def test_empty_nums(self):
+        nums = []
+        k = 1
+        expected = 0.0
+        result = find_maximum_average(nums, k)
+        self.assertAlmostEqual(result, expected, delta=0.00001)
+
+    def test_empty_nums_with_negative_k(self):
+        nums = []
+        k = -1
+        with self.assertRaises(ValueError):
+            find_maximum_average(nums, k)
+
 
 if __name__ == "__main__":
     unittest.main()
